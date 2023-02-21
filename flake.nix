@@ -13,7 +13,7 @@
       overlay = final: prev: {
         # If u need android studio set up, u should add android-studio to overlay below like:
         # android-studio
-        inherit (self.packages.${final.system}) android-sdk;
+        inherit (self.packages.${final.system}) android-sdk android-studio;
       };
     }
     //
