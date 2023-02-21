@@ -44,7 +44,7 @@ devshell.mkShell {
   ];
   packages = [
     # Uncomment these if u decided to want to install android-studio
-    # android-studio
+    android-studio
     android-sdk
     gradle
     jdk11
