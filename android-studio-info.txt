@@ -1,0 +1,4 @@
+Android gradle plugin ver 3.5.1
+Gradle version 5.4.1
+Compile sdk ver 29
+Build tools ver 29.0.2
