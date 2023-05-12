@@ -1,29 +1,13 @@
-import express, { Application, Request, Response } from 'express';
-import bodyParser from 'body-parser';
+import { config } from 'dotenv';
 
-const app: Application = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', async (req: Request, res: Response): Promise<Response> => {
-  return res.status(200).send({
-    message: 'Hello World!',
-  });
-});
-
-app.post('/post', async (req: Request, res: Response): Promise<Response> => {
-  console.log(req.body);
-  return res.status(200).send({
-    message: 'Hello World from post!',
-  });
-});
-
-const PORT = 3000;
-
-try {
-  app.listen(PORT, (): void => {
-    console.log(`Connected successfully on port ${PORT}`);
-  });
-} catch (error: any) {
-  console.error(`Error occured: ${error.message}`);
+if (process.env.NODE_ENV !== 'production') {
+  config();
 }
+// call after config() to access the env variables
+import { app } from './api';
+
+const port = process.env.PORT || 3333;
+
+app.listen(port, () =>
+  console.log(`API available on http://localhost:${port}`)
+);

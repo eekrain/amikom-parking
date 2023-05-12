@@ -1,8 +1,20 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "incremental": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "lib": ["ESNext"],
+    "strictNullChecks": false
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "compileOnSave": true,
+  "include": ["src"]
 }
