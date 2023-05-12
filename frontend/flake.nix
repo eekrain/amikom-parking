@@ -31,18 +31,17 @@
           android-sdk = android.sdk.${system} (sdkPkgs: with sdkPkgs; [
             # Useful packages for building and testing.
             build-tools-29-0-2
-            build-tools-31-0-0
+            build-tools-30-0-3
             cmdline-tools-latest
             emulator
             platform-tools
             platforms-android-29
-            platforms-android-31
 
             # Other useful packages for a development environment.
             sources-android-29
-            sources-android-31
-            # system-images-android-30-google-apis-x86
-            # system-images-android-30-google-apis-playstore-x86
+            system-images-android-29-google-apis-x86-64
+            patcher-v4
+            tools
           ]);
 
           android-studio = pkgs.androidStudioPackages.stable;
