@@ -15,6 +15,7 @@
             nodePackages.prisma
             nodePackages.npm
             nodejs-slim
+            openssl
           ];
           shellHook = with pkgs; ''
             export PRISMA_MIGRATION_ENGINE_BINARY="${prisma-engines}/bin/migration-engine"

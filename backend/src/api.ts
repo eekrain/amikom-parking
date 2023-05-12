@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export const app = express();
 
@@ -16,7 +18,11 @@ app.get('/', (req, res) => {
 
 const api = express.Router();
 
-api.get('/hello', (req, res) => {
+api.get('/hello', async (req, res) => {
+  const tes = await prisma.todo.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+  console.log('🚀 ~ file: api.ts:25 ~ api.get ~ tes:', tes);
   res.status(200).send({ message: 'hello world' });
 });
 
