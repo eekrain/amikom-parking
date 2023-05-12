@@ -32,7 +32,7 @@ public class ConfirmActivity extends AppCompatActivity {
     private Button konfir, back;
     Context context;
     String mhs_foto, mhs_nama, nim, plat, jenis, merk, tipe;
-    public static final String URL_PROSES_PARKIR = "https://amikom.rocketjaket.com/api/Parking/";
+    public static final String URL_PROSES_PARKIR = "https://mydomain.com/api/v1/";
     SessionManager sessionManager;
 
     @Override
