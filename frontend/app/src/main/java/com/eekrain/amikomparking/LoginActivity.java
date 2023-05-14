@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     SessionManager sessionManager;
 
-    public static String URL_LOGIN  = "https://amikom.rocketjaket.com/api/auth";
+    public static String URL_LOGIN  = "http://10.0.2.2:3333/api/amikom_parking/auth";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         AndroidNetworking.initialize(getApplicationContext());
+        AndroidNetworking.enableLogging();
     }
 
     private void Login(){
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-
+                        Toast.makeText(LoginActivity.this, "Jembut", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
