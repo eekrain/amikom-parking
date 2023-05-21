@@ -34,15 +34,15 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.text1.setText(data1.get(position));
-        holder.text2.setText(data2.get(position));
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.text1.setText(data1.get(holder.getAdapterPosition()));
+        holder.text2.setText(data2.get(holder.getAdapterPosition()));
 
         holder.rowLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, QRScanActitivy.class);
-                intent.putExtra("plat", data1.get(position));
+                intent.putExtra("plat", data1.get(holder.getAdapterPosition()));
                 context.startActivity(intent);
             }
         });

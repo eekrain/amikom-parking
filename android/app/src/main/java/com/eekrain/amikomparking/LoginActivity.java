@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText nim, password;
     Button btn_login;
     SessionManager sessionManager;
-    public static String URL_LOGIN  = BuildConfig.API_URL + "/auth";
+    public static String URL_LOGIN  = BuildConfig.API_URL + "/user/auth";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

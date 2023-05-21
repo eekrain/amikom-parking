@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     public ArrayList<String> jenis = new ArrayList<String>();
 
 
-    public static String URL_GETVEHICLE  = "https://amikom.rocketjaket.com/api/vehicle/getListVehicleJSON";
+    public static String URL_GETVEHICLE  = BuildConfig.API_URL + "/user/getVehicles";
     public static String TAG = "HomeActivity";
 
     @Override
@@ -58,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         context = this;
 
         AndroidNetworking.initialize(getApplicationContext());
+        AndroidNetworking.enableLogging();
         AndroidNetworking.post(URL_GETVEHICLE)
                 .addBodyParameter("nim", nim)
                 .setTag(this)
@@ -89,7 +90,6 @@ public class HomeActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-
                     }
                 });
     }

@@ -29,7 +29,7 @@ import java.util.Locale;
 public class ConfirmActivity extends AppCompatActivity {
     private ImageView foto;
     private TextView txtNama, txtNim, txtPlat, txtJenis, txtMerk, txtTipe;
-    private Button konfir, back;
+    private Button confirm, back;
     Context context;
     String mhs_foto, mhs_nama, nim, plat, jenis, merk, tipe;
     public static final String URL_PROSES_PARKIR = "https://mydomain.com/api/v1/";
@@ -51,9 +51,9 @@ public class ConfirmActivity extends AppCompatActivity {
         txtMerk = (TextView)findViewById(R.id.merk_confirm);
         txtTipe = (TextView)findViewById(R.id.tipe_confirm);
 
-        konfir = (Button)findViewById(R.id.btn_confirm);
+        confirm = (Button)findViewById(R.id.btn_confirm);
         back = (Button)findViewById(R.id.btn_cancel);
-        konfir.setOnClickListener(new View.OnClickListener() {
+        confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 prosesParkir(1);
