@@ -22,8 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText nim, password;
     Button btn_login;
     SessionManager sessionManager;
-
-    public static String URL_LOGIN  = "http://10.0.2.2:3333/api/amikom_parking/auth";
+    public static String URL_LOGIN  = BuildConfig.API_URL + "/auth";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         nim = (EditText) findViewById(R.id.nim);
         password = (EditText) findViewById(R.id.password);
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Login();
-            }
-        });
+        btn_login.setOnClickListener(v -> Login());
 
         AndroidNetworking.initialize(getApplicationContext());
         AndroidNetworking.enableLogging();
