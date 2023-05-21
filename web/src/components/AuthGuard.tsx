@@ -17,7 +17,11 @@ const AuthGuard: Component<{}> = (props) => {
   return (
     <Show when={isLoggedIn()} fallback={<Outlet />}>
       <NavBar />
-      <Outlet />
+      <div class="min-h-screen bg-slate-100">
+        <main class="container mx-auto">
+          <Outlet />
+        </main>
+      </div>
     </Show>
   );
 };
