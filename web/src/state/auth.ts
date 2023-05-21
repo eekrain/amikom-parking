@@ -6,8 +6,11 @@ const [auth, setAuth, methods] = createSessionStorage({
 });
 
 const authStore = {
-  auth,
-  methods,
+  isLoggedIn: () => {
+    const status = auth.auth;
+    if (status === "true") return true;
+    return false;
+  },
   setLoggedIn: () => {
     setAuth("auth", "true");
   },

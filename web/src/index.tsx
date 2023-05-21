@@ -4,7 +4,6 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 
 import App from "./App";
-import authStore from "./state/auth";
 
 const root = document.getElementById("root");
 
