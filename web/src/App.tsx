@@ -1,8 +1,17 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
+import { Link, useRoutes, useLocation } from "@solidjs/router";
+import { routes } from "./routes";
 
 const App: Component = () => {
+  const location = useLocation();
+  const Route = useRoutes(routes);
+
   return (
-    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
+    <>
+      <main>
+        <Route />
+      </main>
+    </>
   );
 };
 
