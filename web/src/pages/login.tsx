@@ -62,7 +62,7 @@ export default function Login() {
   });
 
   return (
-    <div class="w-full min-h-screen flex items-center justify-center">
+    <div class="w-full min-h-screen flex items-center justify-center bg-slate-100">
       <div class="w-full lg:max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div class="px-6 py-4">
           <div class="flex justify-center mx-auto">
