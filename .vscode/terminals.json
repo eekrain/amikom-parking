@@ -1,0 +1,23 @@
+{
+  "autorun": false,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "Root",
+      "focus": true
+    },
+
+    {
+      "name": "Backend",
+      "cwd": "./backend"
+    },
+    {
+      "name": "Web",
+      "cwd": "./web"
+    },
+    {
+      "name": "Android",
+      "cwd": "./android"
+    }
+  ]
+}
