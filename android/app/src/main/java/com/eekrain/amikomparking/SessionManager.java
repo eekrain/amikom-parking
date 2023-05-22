@@ -44,7 +44,7 @@ public class SessionManager {
 
     public HashMap<String, String> getUserDetail() {
         HashMap<String, String> user = new HashMap<>();
-        user.put(NAME, sharedPreferences.getString(NAME, "KONTOL"));
+        user.put(NAME, sharedPreferences.getString(NAME, ""));
         user.put(NIM, sharedPreferences.getString(NIM, null));
 
         return user;
