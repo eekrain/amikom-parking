@@ -6,6 +6,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +37,7 @@ public class QRScanActitivy extends AppCompatActivity implements ZXingScannerVie
     String plat, nim;
     SessionManager sessionManager;
 
-    public static final String URL_SCAN = "https://amikom.rocketjaket.com/api/Parking/processParking";
+    public static final String URL_SCAN = BuildConfig.API_URL + "/parking/processParking";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +140,11 @@ public class QRScanActitivy extends AppCompatActivity implements ZXingScannerVie
 
                     @Override
                     public void onError(ANError anError) {
-
+                        String message = anError.getErrorBody();
+                        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                        Intent gagal = new Intent(context, HomeActivity.class);
+                        context.startActivity(gagal);
+                        finish();
                     }
                 });
     }
