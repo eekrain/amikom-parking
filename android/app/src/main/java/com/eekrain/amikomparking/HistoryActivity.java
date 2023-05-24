@@ -62,7 +62,7 @@ public class HistoryActivity extends AppCompatActivity {
                                 String plat_res = jsonObject.getString("plat");
                                 String date_res = jsonObject.getString("date");
                                 Boolean status_res = jsonObject.getBoolean("status");
-                                Log.v("HistoryActivityBkp", plat_res);
+                                Log.v("HistoryActivityBkp", "ASUUUUUSUUUUUUUUUUUUUUUUUU : " + plat_res);
                                 Toast.makeText(context, "plat : " + plat_res, Toast.LENGTH_SHORT).show();
                                 plat.add(plat_res);
                                 date.add(date_res);

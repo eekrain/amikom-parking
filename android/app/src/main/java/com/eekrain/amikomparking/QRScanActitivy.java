@@ -117,7 +117,7 @@ public class QRScanActitivy extends AppCompatActivity implements ZXingScannerVie
                                 String jenis = response.getString("jenis");
                                 String merk = response.getString("merk");
                                 String tipe = response.getString("tipe");
-//                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                                 Intent sukses = new Intent(context, ConfirmActivity.class);
                                 sukses.putExtra("mhs_foto", mhs_foto);
                                 sukses.putExtra("mhs_nama", mhs_nama);
