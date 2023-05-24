@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgapp"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".LoginActivity">
@@ -26,11 +26,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         android:text="UNIVERSITAS AMIKOM"
         android:textAlignment="center"
-        android:textColor="#000"
-        android:paddingTop="10dp"
-        android:textSize="18sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
@@ -38,8 +39,9 @@
         android:fontFamily="sans-serif-light"
         android:text="Yogyakarta"
         android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="18sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,9 +53,9 @@
         <ImageView
             android:layout_width="197dp"
             android:layout_height="73dp"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/parking_logo"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal"/>
+            android:scaleType="centerCrop" />
 
 
     </LinearLayout>
@@ -61,43 +63,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="silahkan Login dengan NIM dan password"/>
+        android:textColor="#FFFFFF"
+        android:text="Silahkan masuk dengan NIM dan password"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="350dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="0dp">
+        android:layout_marginHorizontal="32dp"
+        android:hint="NIM"
+        app:boxBackgroundColor="#BFFFFFFF"
+        android:layout_marginBottom="10dp"
+        app:boxStrokeColor="#BFFFFFFF"
+        app:errorTextAppearance="@style/error_appearance"
+        app:hintTextAppearance="@style/error_appearance"
+        >
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nim"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10pt"
-            android:layout_gravity="center"
-            android:background="@drawable/kotak"
-            android:paddingLeft="10dp"
             android:drawableStart="@drawable/ic_person_black_24dp"
-            android:hint="nim">
-
-        </EditText>
+            android:drawablePadding="10dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="350dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp">
+        android:layout_marginHorizontal="32dp"
+        android:hint="Password"
+        app:boxBackgroundColor="#BFFFFFFF"
+        app:boxStrokeColor="#BFFFFFFF"
+        app:errorTextAppearance="@style/error_appearance"
+        app:hintTextAppearance="@style/error_appearance">
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/kotak"
-            android:layout_gravity="center"
+            android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_lock_black_24dp"
-            android:hint="password"
-            android:textSize="10pt"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp">
+            android:inputType="textPassword">
 
         </EditText>
 
@@ -111,8 +122,11 @@
         <Button
             android:id="@+id/btn_login"
             android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#ff00cc"
             android:text="Login"/>
     </LinearLayout>
     <LinearLayout
