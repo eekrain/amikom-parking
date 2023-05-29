@@ -1,11 +1,11 @@
-import { createSignal } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import dayjs from "dayjs";
 import { QRCodeSVG } from "solid-qr-code";
 import { createTimer } from "@solid-primitives/timer";
 
 const initDate = dayjs().add(30, "second");
 
-export default function Home() {
+const Home: Component<{}> = (props) => {
   const [qrData, setQrData] = createSignal(`${initDate.toISOString()}`);
   const [validUntil, setValidUntil] = createSignal(dayjs().add(30, "second"));
   const [validRemaining, setValidRemaining] = createSignal(
@@ -52,4 +52,6 @@ export default function Home() {
       <p class="mt-24">dummy qr data: {JSON.stringify(dummyQRData())}</p>
     </>
   );
-}
+};
+
+export default Home;

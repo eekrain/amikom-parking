@@ -42,8 +42,8 @@ export default function Login() {
         .json<{ status?: boolean; message: string }>((val) => val)
         .catch((error) => {
           console.log("🚀 ~ file: login.tsx:39 ~ onSubmit: ~ error:", error);
-          toast.error("Error while trying to log in");
-          return { message: "Error while trying to log in", status: false };
+          toast.error("Error saat mencoba masuk");
+          return { message: "Error saat mencoba masuk", status: false };
         });
 
       if (login.status === true) {

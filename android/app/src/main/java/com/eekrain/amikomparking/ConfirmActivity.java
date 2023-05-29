@@ -32,7 +32,7 @@ public class ConfirmActivity extends AppCompatActivity {
     private Button confirm, back;
     Context context;
     String mhs_foto, mhs_nama, nim, plat, jenis, merk, tipe;
-    public static final String URL_PROSES_PARKIR = "https://mydomain.com/api/v1/";
+    public static final String URL_PROSES_PARKIR = BuildConfig.API_URL + "/parking/processParking";
     SessionManager sessionManager;
 
     @Override
@@ -57,7 +57,6 @@ public class ConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 prosesParkir(1);
-                Toast.makeText(context, "Berhasil! Selamat jalan ...", Toast.LENGTH_SHORT).show();
 
                 Intent konfir_i = new Intent(context, HomeActivity.class);
                 context.startActivity(konfir_i);
@@ -138,22 +137,7 @@ public class ConfirmActivity extends AppCompatActivity {
                         try {
                             Boolean status = response.getBoolean("status");
                             String message = response.getString("message");
-
-                            if (status){
-                                Toast.makeText(context, "is_confirm : " + is_confirm.toString() + ", status : " + message, Toast.LENGTH_SHORT).show();
-                                if(is_confirm == 0){
-                                    Toast.makeText(context, "Pastikan data-data kendaraan anda sesuai", Toast.LENGTH_SHORT).show();
-                                } else{
-                                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                                }
-                            }else {
-                                Toast.makeText(context, "is_confirm : " + is_confirm.toString() + ", status : " + message, Toast.LENGTH_SHORT).show();
-                                if(is_confirm == 0){
-                                    Toast.makeText(context, "Pastikan data-data kendaraan anda sesuai", Toast.LENGTH_SHORT).show();
-                                } else{
-                                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                                }
-                            }
+                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                         }catch (JSONException e){
                             e.printStackTrace();
                         }

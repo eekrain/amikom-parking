@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        Toast.makeText(LoginActivity.this, "Jembut", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Error saat mencoba login!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

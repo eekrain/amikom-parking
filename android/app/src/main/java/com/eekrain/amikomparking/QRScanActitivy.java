@@ -37,7 +37,7 @@ public class QRScanActitivy extends AppCompatActivity implements ZXingScannerVie
     String plat, nim;
     SessionManager sessionManager;
 
-    public static final String URL_SCAN = BuildConfig.API_URL + "/parking/processParking";
+    public static final String URL_SCAN = BuildConfig.API_URL + "/parking/checkQR";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

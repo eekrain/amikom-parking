@@ -1,9 +1,26 @@
-import { Component } from "solid-js";
+import { Component, createEffect } from "solid-js";
 import authStore from "../state/auth";
-import { useNavigate } from "@solidjs/router";
+import { useNavigate, useMatch } from "@solidjs/router";
+
+const linkClasses = {
+  default:
+    "text-gray-800 transition-colors duration-300 transform border-b-2 mx-1.5 sm:mx-6",
+  active: "dark:text-gray-200  border-blue-500",
+  inactive:
+    "border-transparent hover: dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6",
+};
 
 const Navbar: Component<{}> = (props) => {
   const navigate = useNavigate();
+  const isQRPage = useMatch(() => "/");
+  const isHistoryPage = useMatch(() => "/history");
+
+  createEffect(() => {
+    console.log(
+      "🚀 ~ file: Navbar.tsx:13 ~ createEffect ~ isHistoryPage():",
+      isHistoryPage()
+    );
+  });
   return (
     <nav class="bg-white shadow dark:bg-gray-800">
       <div class="container flex items-center justify-between p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
@@ -17,13 +34,21 @@ const Navbar: Component<{}> = (props) => {
         <div>
           <a
             href="/"
-            class="text-gray-800 transition-colors duration-300 transform dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6"
+            classList={{
+              [linkClasses.default]: true,
+              [linkClasses.active]: Boolean(isQRPage()),
+              [linkClasses.inactive]: !Boolean(isQRPage()),
+            }}
           >
             QR Scan
           </a>
           <a
-            href="#"
-            class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-300 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+            href="/history"
+            classList={{
+              [linkClasses.default]: true,
+              [linkClasses.active]: Boolean(isHistoryPage()),
+              [linkClasses.inactive]: !Boolean(isHistoryPage()),
+            }}
           >
             History
           </a>
