@@ -1,4 +1,10 @@
-import { Component, For, createEffect, createResource } from "solid-js";
+import {
+  Component,
+  For,
+  createEffect,
+  createResource,
+  onMount,
+} from "solid-js";
 import wretch from "wretch";
 import toast from "solid-toast";
 
@@ -6,6 +12,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/id";
 import { createTimer } from "@solid-primitives/timer";
+import { useSocket } from "../utils/socket";
 dayjs.locale("id");
 dayjs.extend(relativeTime);
 
@@ -41,9 +48,15 @@ const limit = "1d";
 
 const History: Component<{}> = (props) => {
   const [history, { refetch }] = createResource(limit, getHistory);
+  const [socket, { connect, disconnect }] = useSocket();
 
   // refetch every 5 sec
   createTimer(() => refetch(), 5000, setInterval);
+
+  onMount(() => {
+    const sock = socket();
+    sock.on("parking-status", () => refetch());
+  });
 
   return (
     <>
