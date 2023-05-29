@@ -20,3 +20,22 @@
   > .tippy-arrow::before {
   border-right-color: rgb(248 113 113);
 }
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-exit-to {
+  opacity: 0;
+}
+
+.slide-fade-bottom-enter-active,
+.slide-fade-bottom-exit-active {
+  transition: all 0.4s ease;
+}
+.slide-fade-bottom-enter,
+.slide-fade-bottom-exit-to {
+  opacity: 0;
+  transform: translateY(100vh);
+}
