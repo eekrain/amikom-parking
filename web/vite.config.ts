@@ -4,9 +4,9 @@ import mkcert from "vite-plugin-mkcert";
 
 export default defineConfig({
   plugins: [
-    // mkcert({
-    //   hosts: ["mydomain.com", "localhost"],
-    // }),
+    mkcert({
+      hosts: ["mydomain.com", "localhost"],
+    }),
     solidPlugin(),
   ],
   server: {

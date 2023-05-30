@@ -18,7 +18,6 @@ interface History {
 }
 
 const getHistory = async (limit: string) => {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
   const hist = await wretch(
     `${import.meta.env.VITE_API_URL}/parking/history?limit=${limit}`
   )
