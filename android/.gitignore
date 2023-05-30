@@ -13,6 +13,5 @@
 .externalNativeBuild
 .cxx
 
-
 #direnv
 .direnv
