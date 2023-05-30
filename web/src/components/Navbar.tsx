@@ -1,6 +1,6 @@
 import { Component, createEffect } from "solid-js";
 import authStore from "../state/auth";
-import { useNavigate, useMatch } from "@solidjs/router";
+import { useNavigate, useMatch, A } from "@solidjs/router";
 
 const linkClasses = {
   default:
@@ -32,7 +32,7 @@ const Navbar: Component<{}> = (props) => {
           />
         </a>
         <div>
-          <a
+          <A
             href="/"
             classList={{
               [linkClasses.default]: true,
@@ -41,8 +41,8 @@ const Navbar: Component<{}> = (props) => {
             }}
           >
             QR Scan
-          </a>
-          <a
+          </A>
+          <A
             href="/history"
             classList={{
               [linkClasses.default]: true,
@@ -51,7 +51,7 @@ const Navbar: Component<{}> = (props) => {
             }}
           >
             History
-          </a>
+          </A>
         </div>
 
         <button

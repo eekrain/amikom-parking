@@ -135,9 +135,6 @@ const AuthGuard: Component<{}> = (props) => {
         <main class="container mx-auto">
           <Outlet />
         </main>
-        <Show when={import.meta.env.DEV}>
-          <button onClick={test}>tes modal</button>
-        </Show>
       </div>
     </Show>
   );

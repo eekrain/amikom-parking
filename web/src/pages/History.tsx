@@ -1,10 +1,4 @@
-import {
-  Component,
-  For,
-  createEffect,
-  createResource,
-  onMount,
-} from "solid-js";
+import { Component, For, createResource, onMount } from "solid-js";
 import wretch from "wretch";
 import toast from "solid-toast";
 
@@ -51,7 +45,15 @@ const History: Component<{}> = (props) => {
   const [socket, { connect, disconnect }] = useSocket();
 
   // refetch every 5 sec
-  createTimer(() => refetch(), 5000, setInterval);
+  createTimer(
+    () => {
+      console.log("🚀 ~ file: History.tsx:58 ~ createTimer ~ refetch:");
+
+      refetch();
+    },
+    5000,
+    setInterval
+  );
 
   onMount(() => {
     const sock = socket();
