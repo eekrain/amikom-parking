@@ -1,0 +1,10 @@
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Wed May 24 17:14:30 WIB 2023
+sdk.dir=/nix/store/spb37iziqmrhbnakidpw1xabkxmcx4v4-android-sdk-env/share/android-sdk
+DEV_API_URL="http://10.0.2.2:3333/api/amikom_parking"
+PROD_API_URL=""

@@ -24,11 +24,13 @@
         <activity android:name=".ConfirmActivity" />
         <activity
             android:name=".QRScanActitivy"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".HomeActivity"
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".HomeActivity" />
-        <activity android:name=".HomeActivity">
+            android:parentActivityName=".HomeActivity"
+            android:exported="false"/>
+        <activity android:name=".HomeActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
