@@ -1,12 +1,16 @@
 import { Component, For, Show, createResource, onMount } from "solid-js";
 import wretch from "wretch";
 import toast from "solid-toast";
+import { createTimer } from "@solid-primitives/timer";
+import { useSocket } from "../utils/socket";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/id";
-import { createTimer } from "@solid-primitives/timer";
-import { useSocket } from "../utils/socket";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 dayjs.locale("id");
 dayjs.extend(relativeTime);
 
@@ -25,9 +29,7 @@ const getHistory = async (limit: string) => {
     .badRequest((error) => {
       toast.error(error.message);
     })
-    .json((val) =>
-      val.map((val) => ({ ...val, date: dayjs(val.date).fromNow() }))
-    )
+    .json((val) => val.map((val) => val))
     .catch((error) => {
       console.log("🚀 ~ file: login.tsx:39 ~ onSubmit: ~ error:", error);
       toast.error("Error saat fetching history");
@@ -38,7 +40,7 @@ const getHistory = async (limit: string) => {
   return hist as History[] | null;
 };
 
-const limit = "1d";
+const limit = "all";
 
 const History: Component<{}> = (props) => {
   const [history, { refetch }] = createResource(limit, getHistory);
@@ -69,6 +71,7 @@ const History: Component<{}> = (props) => {
           when={Boolean(history())}
           fallback={<For each={[1, 2, 3, 4, 5]}>{() => <Skeleton />}</For>}
         >
+          <pre>{JSON.stringify(history(), null, 2)}</pre>
           <For each={history()}>
             {(hist, i) => (
               <div class="w-[300px] lg:w-[500px] p-4 bg-white rounded-lg shadow-lg">
@@ -78,7 +81,9 @@ const History: Component<{}> = (props) => {
                     <div>{hist.mhs_nim}</div>
                   </div>
                   <div class="flex items-center space-x-2">
-                    <span class="text-sm text-gray-400">{hist.date}</span>
+                    <span class="text-sm text-gray-400">
+                      {dayjs(hist.date).tz("Asia/Jakarta").fromNow()}
+                    </span>
                     <span class="text-green-600">
                       <svg
                         fill="currentColor"
