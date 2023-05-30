@@ -7,7 +7,7 @@ const linkClasses = {
     "text-gray-800 transition-colors duration-300 transform border-b-2 mx-1.5 sm:mx-6",
   active: "dark:text-gray-200  border-blue-500",
   inactive:
-    "border-transparent hover: dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6",
+    "border-transparent hover: dark:hover:text-gray-200 hover:border-blue-500",
 };
 
 const Navbar: Component<{}> = (props) => {
