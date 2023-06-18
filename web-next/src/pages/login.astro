@@ -1,7 +1,6 @@
 ---
 import SLogin from "../components/Login";
 import "../index.css";
-import checkAuthed from "../utils/checkAuthed";
 
 if (Astro.cookies.has("authed")) {
   return Astro.redirect("/");

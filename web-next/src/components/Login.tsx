@@ -4,6 +4,7 @@ import { validator } from "@felte/validator-zod";
 import tippyReporter from "@felte/reporter-tippy";
 import { createEffect, Component } from "solid-js";
 import wretch from "wretch";
+import { Toaster } from "solid-toast";
 import toast from "solid-toast";
 import authStore from "../state/auth";
 
@@ -61,6 +62,7 @@ const Login: Component<{}> = (props) => {
 
   return (
     <div class="w-full min-h-screen flex items-center justify-center bg-slate-100">
+      <Toaster position="bottom-center" gutter={8} />
       <div class="w-full lg:max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div class="px-6 py-4">
           <div class="flex justify-center mx-auto">

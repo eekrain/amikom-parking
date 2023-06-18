@@ -1,5 +1,7 @@
 ---
 import Navbar from "../components/Navbar";
+import MyToaster from "../components/MyToaster";
+
 interface Props {
   currentUrl: string;
 }
@@ -14,6 +16,7 @@ const { currentUrl } = Astro.props;
     <title>Astro</title>
   </head>
   <body>
+    <MyToaster client:only />
     <Navbar currentUrl={currentUrl} client:only />
     <h1 class="text-red-800">Astro</h1>
     <slot />

@@ -25,16 +25,11 @@ export const post: APIRoute = async ({ params, request, cookies }) => {
         }
       );
     } else {
-      return new Response(
-        JSON.stringify({
-          status: false,
-          message: "Your username / password is wrong",
-        }),
-        {
-          status: 401,
-        }
-      );
+      return new Response("Your username / password is wrong", {
+        status: 401,
+      });
     }
+    2;
   }
   return new Response(null, { status: 400 });
 };
