@@ -1,0 +1,21 @@
+---
+import Navbar from "../components/Navbar";
+interface Props {
+  currentUrl: string;
+}
+const { currentUrl } = Astro.props;
+---
+
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Navbar currentUrl={currentUrl} client:only />
+    <h1 class="text-red-800">Astro</h1>
+    <slot />
+  </body>
+</html>

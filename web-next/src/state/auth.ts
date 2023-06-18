@@ -1,14 +1,7 @@
 import { createSessionStorage } from "@solid-primitives/storage";
 
-const getSessionStorage = () => {
-  if (!window) {
-    return null;
-  }
-  return sessionStorage;
-};
-
 const [auth, setAuth, methods] = createSessionStorage({
-  api: getSessionStorage(),
+  api: sessionStorage,
   prefix: "my-app",
 });
 
